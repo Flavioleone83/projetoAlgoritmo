@@ -1,0 +1,7 @@
+============================================================================
+
+ Programa executado em um processador i5 e espaço de memória principal de 8g
+
+                     Tamanho da entrada de dados: 1000000
+============================================================================
+
