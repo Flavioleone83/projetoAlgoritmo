@@ -297,7 +297,7 @@ void setTempoGastoProcuraMinMax3(float t){
 }
 
 void bubbleSort(int *vet, int length){
-	int i, j, temp;
+	int i, j, temp, x = 0;
 
 	for (i = 0; i < length - 1; i++){
         for (j = (i+1); j < length; j++){
@@ -307,6 +307,8 @@ void bubbleSort(int *vet, int length){
                 vet[j] = temp;
             }
         }
+x++;
+cout << x << "bubble" << endl;
     }
 }
 
@@ -334,7 +336,7 @@ void shellSort(int *vetor, int tam){
 }
 
 void selectionSort(int *vetor, int tam){
-		int i,j;
+		int i,j, x = 0;
 		float tempo1;
 		for(i = 0; i < tam; i++){
 			int minIndex = i;
@@ -348,22 +350,24 @@ void selectionSort(int *vetor, int tam){
 			int temp = vetor[i];
 			vetor[i] = vetor[minIndex];
 			vetor[minIndex] = temp;
-			//cout << vetor[minIndex] << endl;
-		}
+			x++;
+			cout << x << "selection" << endl;		
+	}
 }
 
 void insertionSort(int *vetor, int tam){
 	
-	int i,j;
+	int i,j, r = 0;
 	for(i = 1; i < tam; i++){
 		j = i-1;
 		int x = vetor[i];
 		while(x < vetor[j] && j >= 0){
 			vetor[j + 1] = vetor[j];
 			vetor[j] = x;
-			//cout << vetor[j] << endl;
 			j--;
 		}
+r++;
+cout << r << "insertion" << endl;
 	}	
 }
 
@@ -514,11 +518,6 @@ a = fopen("vetorCriado.txt","r");
 		}
 fclose(a);
 
-//for(int c = 0; c < tam; c++){
-//	cout << t->elementos[c].chave << endl;
-//}
-
-
 return 0;
 }
 
@@ -531,14 +530,9 @@ a = fopen("vetorOrdenado.txt","r");
 		while(!feof(a)){
 			fscanf(a,"%d",&valor);
 			r.chave = valor;
-			//cout << valor << endl;
 			inserir(t,r);
 		}
 fclose(a);
-
-//for(int c = 0; c < tam; c++){
-	//cout << t->elementos[c].chave << endl;
-//}
 
 
 return 0;
@@ -573,15 +567,13 @@ int procuraMax(Tabela *t, int tam){
 				max = t->elementos[i].chave;
 			}
 		}
-	//cout << "Procura Max" << endl;
-	//cout << max << endl;
 }
 
 int procuraMinMax1(Tabela *t, int tam){
 
 	int i,min,max;
 	max = t->elementos[0].chave;
-	min = t->elementos[1000].chave;
+	min = t->elementos[0].chave;
 		for(i = 1; i < tam; i++){
 			if(t->elementos[i].chave < min){
 				min = t->elementos[i].chave;
@@ -589,9 +581,6 @@ int procuraMinMax1(Tabela *t, int tam){
 				max = t->elementos[i].chave;
 			}
 		}
-cout << "Min Max 1" << endl;
-cout << "Menor valor: " << min << endl;
-cout << "Maior valor: " << max << endl;
 }
 
 int procuraMinMax2(Tabela *t, int tam){
@@ -605,9 +594,6 @@ int procuraMinMax2(Tabela *t, int tam){
 				max = t->elementos[i].chave;
 			}
 		}
-cout << "Min Max 2" << endl;
-cout << "Menor valor: " << min << endl;
-cout << "Maior valor: " << max << endl;
 }
 
 int procuraMinMax3(Tabela *t, int n){
@@ -645,9 +631,6 @@ int procuraMinMax3(Tabela *t, int n){
 			}
 		}
 	}
-cout << "Min Max 3" << endl;
-cout << "Menor valor: " << min << endl;
-cout << "Maior valor: " << max << endl;
 }
 
 void showTree(Tree* t)
@@ -675,44 +658,43 @@ pratica p;
 cout << "----------------------------------------" << endl;
 	cout << "Informe os valores de entrada:" << endl;
 	cout << "----------------------------------------" << endl;	
-	cout << "[1] 10" << endl;
-	cout << "[2] 1000" << endl;
-	cout << "[3] 10000" << endl;
-	cout << "[4] 100000" << endl;
-	cout << "[5] 1000000" << endl;
+	cout << "[1] 1.000" << endl;
+	cout << "[2] 10.000" << endl;
+	cout << "[3] 100.000" << endl;
+	cout << "[4] 1000.000" << endl;
 	cout << "----------------------------------------" << endl;
 	cout << "Informe o tamanho da entrada: " << endl;
 	cin >> tam;
+tamV = 1000000;
 	if(tam == 1){
-		tamV = 10;
-		p.setTamanhoV(tamV);
-	}else if(tam == 2){
 		tamV = 1000;
 		p.setTamanhoV(tamV);
-	}else if(tam == 3){
+	}else if(tam == 2){
 		tamV = 10000;
 		p.setTamanhoV(tamV);
-	}else if(tam == 4){
+	}else if(tam == 3){
 		tamV = 100000;
 		p.setTamanhoV(tamV);
-	}else if(tam == 5){
+	}else if(tam == 4){
 		tamV = 1000000;
 		p.setTamanhoV(tamV);
+	}else{
+		cout << " Valor incorreto" << endl;
 	}
 
-		FILE *u;
-		u = fopen("arquivoDados.txt","w");
-			fprintf(u,"%s\n\n","============================================================================");
-			fprintf(u,"%s\n\n"," Programa executado em um processador i5 e espaço de memória principal de 8g");
-			fprintf(u,"%s","                     Tamanho da entrada de dados: ");
-			fprintf(u,"%d\n",tamV);
-			fprintf(u,"%s\n\n","============================================================================");
-		fclose(u);
-Tabela t,tb;
+	FILE *u;
+	u = fopen("arquivoDados.txt","w");
+		fprintf(u,"%s\n\n","============================================================================");
+		fprintf(u,"%s\n\n"," Programa executado em um processador i5 e espaço de memória principal de 8g");
+		fprintf(u,"%s","                     Tamanho da entrada de dados: ");
+		fprintf(u,"%d\n",tamV);
+		fprintf(u,"%s\n\n","============================================================================");
+	fclose(u);
+
+Tabela t;
 Tree* arv = createTree();
-Registro re,reb;
+Registro re;
 inicializar(&t,tamV);
-inicializar(&tb,tamV);
 
 int *vetor = new int[tamV];
 int *vetorSelection = new int[tamV];
@@ -733,10 +715,8 @@ for(i = 0; i < tamV ; i++){
 	if(valor <= 0){
 		continue;
 	}else{
-	vetor[i] = valor;
-	//sprintf(palavra,"%d",valor);
-	fprintf(arq1,"%d\n",valor);
-	//cout << valor << endl;
+		vetor[i] = valor;
+		fprintf(arq1,"%d\n",valor);
 	}
 }
 fclose(arq1);
@@ -744,21 +724,19 @@ fclose(arq1);
 p.shellSort(vetor,tamV);
 
 FILE *arq2;
-arq2 = fopen("vetorOrdenado.txt","w");
 FILE *arq3;
+arq2 = fopen("vetorOrdenado.txt","w");
 arq3 = fopen("vetorDecrescente.txt","w");
 for(i = 0; i < tamV ; i++){
 	valor = vetor[i];
 	sprintf(palavra,"%d",valor);
 	fprintf(arq2,"%s\n",palavra);
-	//cout << valor << endl;
 }
 
 for(i = tamV; i > 0 ; i--){
 	valor = vetor[i];
 	sprintf(palavra,"%d",valor);
 	fprintf(arq3,"%s\n",palavra);
-	//cout << valor << endl;
 }
 fclose(arq3);
 fclose(arq2);
@@ -769,11 +747,9 @@ do{
 	cout << "[1] Pesquisa Sequêncial" << endl;
 	cout << "[2] Pesquisa Binária" << endl;
 	cout << "[3] Árvore Binária" << endl;
-	cout << "[4] Pesquisa Hashing Lista" << endl;
-	cout << "[5] Pesquisa hasching endereçamento" << endl;
-	cout << "[6] Ordenar vetores" << endl;
-	cout << "[7] Procurar o Max e Min" << endl;
-	cout << "[8] Sair" << endl;
+	cout << "[4] Ordenar vetores" << endl;
+	cout << "[5] Procurar o Max e Min" << endl;
+	cout << "[6] Sair" << endl;
 	cout << "=======================================" << endl;
 	cin >> resposta;
 	switch(resposta){
@@ -841,11 +817,12 @@ do{
 		tempo = 0;
 		tempo = clock();
 		if(isInTree(arv,v)){
+
+		p.setTempoGastoArvoreBinaria((clock() - tempo)/(double)CLOCKS_PER_SEC);	
 			cout << "Valor encontrado  "<< endl;
 		}else{
 			cout << "Valor não encontrado" << endl;
 		}
-		p.setTempoGastoArvoreBinaria((clock() - tempo)/(double)CLOCKS_PER_SEC);	
 
 fclose(ba);
 
@@ -862,80 +839,91 @@ fclose(pa);
 		//showTree(arv);
 		break;
 	case 4:
-		pesquisaHashingLista();
-		break;
-	case 5:
-		pesquisaHashingEndrecamento();
-		break;
-	case 6:
 	i = 0;
 	FILE *x;
-	x = fopen("vetorDecrescente.txt","r");
+	int tipo;
+	cout << "Informe o tipo de arquivo acessar" << endl;
+	cout << "[1] Vetor aleatório" << endl;
+	cout << "[2] Vetor crescente" << endl;
+	cout << "[3] Vetor vetor decrescente" << endl;
+	cin >> tipo;
+
+if(tipo == 1 ){
+	x = fopen("vetorCriado.txt","r");
+}else if(tipo == 2){
+		x = fopen("vetorOrdenado.txt","r");
+}else if(tipo == 3){
+		x = fopen("vetorDecrescente.txt","r");
+}
 	while(!feof(x)){
 		fscanf(x,"%d",&valor);
 		vetorSelection[i] = valor;
 		vetorInsertion[i] = valor;
+		vetorBubble[i] = valor;
 		vetorMerge[i] = valor;
 		vetorShell[i] = valor;
 		vetorHeap[i] = valor;
 		vetorQuick[i] = valor;
-		vetorBubble[i] = valor;
 		i++;
 	}
+
 	fclose(x);
 
 	tempo = 0;
 	tempo = clock();
-	//p.shellSort(vetorShell,tamV);
-	p.setTempoGastoShell((clock() - tempo)/(double)CLOCKS_PER_SEC);
-	tempo = 0;
-	tempo = clock();
 	p.selectionSort(vetorSelection,tamV);
 	p.setTempoGastoSelection((clock() - tempo)/(double)CLOCKS_PER_SEC);
+
 	tempo = 0;
 	tempo = clock();
-	//p.insertionSort(vetorInsertion,tamV);
+	p.bubbleSort(vetorBubble,tamV);
+	p.setTempoGastoBubble((clock() - tempo)/(double)CLOCKS_PER_SEC);
+	tempo = 0;
+	tempo = clock();
+	p.insertionSort(vetorInsertion,tamV);
 	p.setTempoGastoInsertion((clock() - tempo)/(double)CLOCKS_PER_SEC);
+
 	tempo = 0;
 	tempo = clock();
-	//p.mergeSort(vetorMerge,1,tamV);
+	p.shellSort(vetorShell,tamV);
+	p.setTempoGastoShell((clock() - tempo)/(double)CLOCKS_PER_SEC);
+
+	tempo = 0;
+	tempo = clock();
+	p.mergeSort(vetorMerge,1,tamV);
 	p.setTempoGastoMerge((clock() - tempo)/(double)CLOCKS_PER_SEC);	
 	tempo = 0;
 	tempo = clock();
-	//p.heapSort(vetorHeap,tamV);
+	p.heapSort(vetorHeap,tamV);
 	p.setTempoGastoHeap((clock() - tempo)/(double)CLOCKS_PER_SEC);	
 	tempo = 0;
 	tempo = clock();
-	//p.quickSort(vetorQuick,1,tamV);
+	p.quickSort(vetorQuick,1,tamV);
 	p.setTempoGastoQuick((clock() - tempo)/(double)CLOCKS_PER_SEC);
-	tempo = 0;
-	tempo = clock();
-	//p.bubbleSort(vetorBubble,tamV);
-	p.setTempoGastoBubble((clock() - tempo)/(double)CLOCKS_PER_SEC);
 
 FILE *y;
-	y = fopen("arquivoDados.txt","a");
-		fprintf(y,"%s\n","============================================================================");
-		fprintf(y,"%s\n\n","                Dados referente ao tempo gasto para ordenação");
-		fprintf(y,"%s","                    Tempo Gasto Insertion Sort: ");
-		fprintf(y,"%f\n",p.getTempoGastoInsertion());
-		fprintf(y,"%s","                    Tempo Gasto Selection Sort: ");
-		fprintf(y,"%f\n",p.getTempoGastoSelection());
-		fprintf(y,"%s","                    Tempo Gasto Shell Sort: ");
-		fprintf(y,"%f\n",p.getTempoGastoShell());
-		fprintf(y,"%s","                    Tempo Gasto Merge Sort: ");
-		fprintf(y,"%f\n",p.getTempoGastoMerge());
-		fprintf(y,"%s","                    Tempo Gasto Quick Sort: ");
-		fprintf(y,"%f\n",p.getTempoGastoQuick());				
-		fprintf(y,"%s","                    Tempo Gasto Heap Sort: ");
-		fprintf(y,"%f\n",p.getTempoGastoHeap());	
-		fprintf(y,"%s","                    Tempo Gasto Bubble Sort: ");
-		fprintf(y,"%f\n",p.getTempoGastoBubble());	
-		fprintf(y,"%s\n\n","============================================================================");
-	fclose(y);
+y = fopen("arquivoDados.txt","a");
+	fprintf(y,"%s\n","============================================================================");
+	fprintf(y,"%s\n\n","                Dados referente ao tempo gasto para ordenação");
+	fprintf(y,"%s","                    Tempo Gasto Insertion Sort: ");
+	fprintf(y,"%f\n",p.getTempoGastoInsertion());
+	fprintf(y,"%s","                    Tempo Gasto Selection Sort: ");
+	fprintf(y,"%f\n",p.getTempoGastoSelection());
+	fprintf(y,"%s","                    Tempo Gasto Shell Sort: ");
+	fprintf(y,"%f\n",p.getTempoGastoShell());
+	fprintf(y,"%s","                    Tempo Gasto Merge Sort: ");
+	fprintf(y,"%f\n",p.getTempoGastoMerge());
+	fprintf(y,"%s","                    Tempo Gasto Quick Sort: ");
+	fprintf(y,"%f\n",p.getTempoGastoQuick());				
+	fprintf(y,"%s","                    Tempo Gasto Heap Sort: ");
+	fprintf(y,"%f\n",p.getTempoGastoHeap());	
+	fprintf(y,"%s","                    Tempo Gasto Bubble Sort: ");
+	fprintf(y,"%f\n",p.getTempoGastoBubble());	
+	fprintf(y,"%s\n\n","============================================================================");
+fclose(y);
 	break;
 	
-	case 7:
+	case 5:
 	preencheTad(&t,re,tamV);
 	float aux1,aux2,aux3,aux4;
 	tempo = 0;
@@ -945,7 +933,6 @@ FILE *y;
 	
 	tempo = 0;
 	tempo = clock();
-	//funciona ate aki
 	procuraMinMax1(&t,tamV);
 	aux2 = ((clock() - tempo)/(double)CLOCKS_PER_SEC);
 
@@ -981,11 +968,12 @@ FILE *y;
 	fprintf(p,"%s\n\n","==========================================================================");
 	fclose(p);
 	break;
-	case 8:
-
+	case 6:
+		cout << "Saindo..." << endl;
 	break;
+	
 }
-}while(resposta != 8);
+}while(resposta != 6);
 FILE * an;
 an = fopen("arquivoDados.txt","r");
 size_t len= 255; // valor arbitrário
@@ -995,6 +983,7 @@ char *linha= (char*)malloc(len);
   		}
 cout << "Criar outro caso de uso?" << endl;
 cin >> respostaP;
+
 }while(respostaP != 0 );
 return 0;
 }

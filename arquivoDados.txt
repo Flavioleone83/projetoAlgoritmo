@@ -2,6 +2,35 @@
 
  Programa executado em um processador i5 e espaço de memória principal de 8g
 
-                     Tamanho da entrada de dados: 1000000
+                     Tamanho da entrada de dados: 1000
 ============================================================================
 
+============================================================================
+                Dados referente ao tempo gasto para ordenação
+
+                    Tempo Gasto Insertion Sort: 0.003337
+                    Tempo Gasto Selection Sort: 0.004624
+                    Tempo Gasto Shell Sort: 0.000142
+                    Tempo Gasto Merge Sort: 0.000206
+                    Tempo Gasto Quick Sort: 0.000122
+                    Tempo Gasto Heap Sort: 0.000142
+                    Tempo Gasto Bubble Sort: 0.006348
+============================================================================
+
+============================================================================
+              Dado referente ao tempo gasto pela pesquisa sequêncial
+
+                     Tempo Gasto: 0.000007
+============================================================================
+
+============================================================================
+              Dado referente ao tempo gasto pela pesquisa binária
+
+                    Tempo Gasto: 0.000002
+============================================================================
+
+============================================================================
+            Dados referente ao tempo gasto para busca árvore binária
+
+                    Tempo Gasto árvore Binária: 0.000000
+============================================================================-
