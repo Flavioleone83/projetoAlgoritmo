@@ -307,8 +307,8 @@ void bubbleSort(int *vet, int length){
                 vet[j] = temp;
             }
         }
-x++;
-cout << x << "bubble" << endl;
+//x++;
+//cout << x << "bubble" << endl;
     }
 }
 
@@ -350,8 +350,8 @@ void selectionSort(int *vetor, int tam){
 			int temp = vetor[i];
 			vetor[i] = vetor[minIndex];
 			vetor[minIndex] = temp;
-			x++;
-			cout << x << "selection" << endl;		
+			//x++;
+			//cout << x << "selection" << endl;		
 	}
 }
 
@@ -366,8 +366,8 @@ void insertionSort(int *vetor, int tam){
 			vetor[j] = x;
 			j--;
 		}
-r++;
-cout << r << "insertion" << endl;
+//r++;
+//cout << r << "insertion" << endl;
 	}	
 }
 
@@ -818,7 +818,7 @@ do{
 		tempo = clock();
 		if(isInTree(arv,v)){
 
-		p.setTempoGastoArvoreBinaria((clock() - tempo)/(double)CLOCKS_PER_SEC);	
+			p.setTempoGastoArvoreBinaria((clock() - tempo)/(double)CLOCKS_PER_SEC);	
 			cout << "Valor encontrado  "<< endl;
 		}else{
 			cout << "Valor não encontrado" << endl;

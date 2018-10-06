@@ -2,35 +2,42 @@
 
  Programa executado em um processador i5 e espaço de memória principal de 8g
 
-                     Tamanho da entrada de dados: 1000
+                     Tamanho da entrada de dados: 100000
 ============================================================================
 
 ============================================================================
                 Dados referente ao tempo gasto para ordenação
 
-                    Tempo Gasto Insertion Sort: 0.003337
-                    Tempo Gasto Selection Sort: 0.004624
-                    Tempo Gasto Shell Sort: 0.000142
-                    Tempo Gasto Merge Sort: 0.000206
-                    Tempo Gasto Quick Sort: 0.000122
-                    Tempo Gasto Heap Sort: 0.000142
-                    Tempo Gasto Bubble Sort: 0.006348
+                    Tempo Gasto Insertion Sort: 9.926764
+                    Tempo Gasto Selection Sort: 11.799380
+                    Tempo Gasto Shell Sort: 0.025644
+                    Tempo Gasto Merge Sort: 0.023332
+                    Tempo Gasto Quick Sort: 0.013500
+                    Tempo Gasto Heap Sort: 0.019960
+                    Tempo Gasto Bubble Sort: 31.130585
 ============================================================================
 
 ============================================================================
-              Dado referente ao tempo gasto pela pesquisa sequêncial
+                Dados referente ao tempo gasto para ordenação
 
-                     Tempo Gasto: 0.000007
+                    Tempo Gasto Insertion Sort: 9.969760
+                    Tempo Gasto Selection Sort: 11.912860
+                    Tempo Gasto Shell Sort: 0.026192
+                    Tempo Gasto Merge Sort: 0.025104
+                    Tempo Gasto Quick Sort: 0.013448
+                    Tempo Gasto Heap Sort: 0.019472
+                    Tempo Gasto Bubble Sort: 31.148111
 ============================================================================
 
 ============================================================================
-              Dado referente ao tempo gasto pela pesquisa binária
+                Dados referente ao tempo gasto para ordenação
 
-                    Tempo Gasto: 0.000002
+                    Tempo Gasto Insertion Sort: 9.987152
+                    Tempo Gasto Selection Sort: 11.914480
+                    Tempo Gasto Shell Sort: 0.026576
+                    Tempo Gasto Merge Sort: 0.023856
+                    Tempo Gasto Quick Sort: 0.014048
+                    Tempo Gasto Heap Sort: 0.019408
+                    Tempo Gasto Bubble Sort: 31.139072
 ============================================================================
 
-============================================================================
-            Dados referente ao tempo gasto para busca árvore binária
-
-                    Tempo Gasto árvore Binária: 0.000000
-============================================================================-
